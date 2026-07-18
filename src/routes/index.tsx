@@ -8,9 +8,13 @@ import { CONTACT } from "@/lib/contact";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Apoorva Verma — Image Consultant & Soft Skills Trainer" },
-      { name: "description", content: "Certified image consultant, soft skills trainer and CELTA-certified English language trainer helping professionals lead with presence, confidence and credibility." },
-    ],
+          { title: "Apoorva Verma — Image Consultant & Soft Skills Trainer" },
+          { name: "description", content: "Certified image consultant, soft skills trainer and CELTA-certified English language trainer helping professionals lead with presence, confidence and credibility." },
+          { property: "og:url", content: "https://av-image.vercel.app/" },
+          { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+          { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+        ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/" }],
   }),
   component: Home,
 });

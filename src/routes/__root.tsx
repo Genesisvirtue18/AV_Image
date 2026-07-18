@@ -10,8 +10,77 @@ import {
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingActions } from "@/components/site/FloatingActions";
+import { CONTACT } from "@/lib/contact";
 
 import appCss from "../styles.css?url";
+
+const SITE_URL = "https://av-image.vercel.app";
+const SITE_TITLE = "Apoorva Verma — Image Consultant & Soft Skills Trainer";
+const SITE_DESCRIPTION =
+  "Certified image consultant, soft skills trainer and CELTA-certified English language trainer for corporate teams, institutions and professionals.";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE_URL}/#person`,
+  name: CONTACT.name,
+  image: OG_IMAGE,
+  jobTitle: "Image Consultant, Soft Skills Trainer and English Language Trainer",
+  email: CONTACT.email,
+  telephone: CONTACT.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Delhi",
+    addressCountry: "IN",
+  },
+  knowsAbout: [
+    "Image Management",
+    "Soft Skills Training",
+    "Executive Presence",
+    "Corporate Communication",
+    "Workplace Etiquette",
+    "English Language Training",
+    "Personal Branding",
+  ],
+  sameAs: [CONTACT.instagram, CONTACT.linkedin, CONTACT.facebook],
+};
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#business`,
+  name: "A.V Image Management",
+  url: SITE_URL,
+  image: OG_IMAGE,
+  logo: `${SITE_URL}/favicon.jpg`,
+  description: SITE_DESCRIPTION,
+  founder: { "@id": `${SITE_URL}/#person` },
+  areaServed: ["Delhi", "India", "Online"],
+  email: CONTACT.email,
+  telephone: CONTACT.phone,
+  sameAs: [CONTACT.instagram, CONTACT.linkedin, CONTACT.facebook],
+  serviceType: [
+    "Corporate Training",
+    "Image Management",
+    "Soft Skills Training",
+    "Executive Presence Training",
+    "Communication Skills Training",
+    "Workplace Etiquette Training",
+    "English Language Training",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: "A.V Image Management",
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  publisher: { "@id": `${SITE_URL}/#business` },
+  inLanguage: "en-IN",
+};
 
 function NotFoundComponent() {
   return (
@@ -75,19 +144,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Apoorva Verma — Image Consultant & Soft Skills Trainer" },
-      { name: "description", content: "Certified image consultant, soft skills trainer and CELTA-certified English language trainer for corporate teams, institutions and professionals." },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
       { name: "author", content: "Apoorva Verma" },
-      { property: "og:title", content: "Apoorva Verma — Image Consultant & Soft Skills Trainer" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "theme-color", content: "#0f0f0f" },
+      { name: "keywords", content: "Apoorva Verma, AV Image Management, image consultant Delhi, soft skills trainer, corporate training Delhi, executive presence training, workplace etiquette, CELTA English trainer" },
+      { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: "Corporate training, image management, soft skills and English language coaching by Apoorva Verma." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "A.V Image Management" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:secure_url", content: OG_IMAGE },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1080" },
+      { property: "og:image:height", content: "1920" },
+      { property: "og:image:alt", content: "Apoorva Verma, founder of A.V Image Management" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Apoorva Verma — Image Consultant & Soft Skills Trainer" },
+      { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: "Corporate training, image management, soft skills and English language coaching by Apoorva Verma." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/67d210c2-079a-451b-8aba-d6fe7a76d03d/id-preview-5e1628ee--e1e0fe0b-a1f2-42cb-98a6-1efce7b1d2d1.lovable.app-1778119260520.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/67d210c2-079a-451b-8aba-d6fe7a76d03d/id-preview-5e1628ee--e1e0fe0b-a1f2-42cb-98a6-1efce7b1d2d1.lovable.app-1778119260520.png" },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: "Apoorva Verma, founder of A.V Image Management" },
+      { "script:ld+json": personJsonLd },
+      { "script:ld+json": serviceJsonLd },
+      { "script:ld+json": websiteJsonLd },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "icon", type: "image/jpeg", href: "/favicon.jpg" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.jpg" },
+      { rel: "stylesheet", href: appCss },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

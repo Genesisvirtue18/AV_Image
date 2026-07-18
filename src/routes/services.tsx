@@ -9,7 +9,11 @@ export const Route = createFileRoute("/services")({
       { name: "description", content: "Corporate soft skills, executive presence, image management, communication, etiquette, leadership and professional growth training by Apoorva Verma." },
       { property: "og:title", content: "Services — Apoorva Verma" },
       { property: "og:description", content: "Training modules and specialized corporate offerings." },
+      { property: "og:url", content: "https://av-image.vercel.app/services" },
+      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/services" }],
   }),
   component: Services,
 });

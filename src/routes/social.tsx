@@ -17,7 +17,11 @@ export const Route = createFileRoute("/social")({
       { name: "description", content: "Follow Apoorva Verma on Instagram and LinkedIn. Recent posts, behind-the-scenes and styling insights." },
       { property: "og:title", content: "Follow Apoorva Verma" },
       { property: "og:description", content: "Latest posts and updates from Instagram and LinkedIn." },
+      { property: "og:url", content: "https://av-image.vercel.app/social" },
+      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/social" }],
   }),
   component: Social,
 });

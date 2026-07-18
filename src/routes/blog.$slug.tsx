@@ -17,8 +17,18 @@ export const Route = createFileRoute("/blog/$slug")({
           { name: "description", content: loaderData.post.excerpt },
           { property: "og:title", content: loaderData.post.title },
           { property: "og:description", content: loaderData.post.excerpt },
+          { property: "og:type", content: "article" },
+          { property: "og:url", content: `https://av-image.vercel.app/blog/${loaderData.post.slug}` },
+          { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
           { property: "article:author", content: loaderData.post.author },
+          { property: "article:published_time", content: loaderData.post.date },
+          { name: "twitter:title", content: loaderData.post.title },
+          { name: "twitter:description", content: loaderData.post.excerpt },
+          { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
         ]
+      : [],
+    links: loaderData
+      ? [{ rel: "canonical", href: `https://av-image.vercel.app/blog/${loaderData.post.slug}` }]
       : [],
   }),
   notFoundComponent: () => (
@@ -68,8 +78,10 @@ function Post() {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
+    image: "https://av-image.vercel.app/og-image.jpg",
     author: { "@type": "Person", name: post.author },
     datePublished: post.date,
+    mainEntityOfPage: `https://av-image.vercel.app/blog/${post.slug}`,
   };
 
   return (
@@ -82,7 +94,7 @@ function Post() {
         <aside className="lg:sticky lg:top-28 lg:self-start space-y-6 order-2 lg:order-1">
           <div className="glass-strong rounded-3xl p-6">
             <h3 className="font-display text-xl mb-2">Book Apoorva Verma</h3>
-            <p className="text-xs text-muted-foreground mb-5">Free 20-min discovery call. Pick a channel.</p>
+            <p className="text-xs text-muted-foreground mb-5">For workshops, institutional training and one-on-one coaching. Pick a channel.</p>
             <div className="space-y-3">
               <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="glass-btn-gold rounded-full px-4 py-3 text-xs uppercase tracking-widest flex items-center justify-center gap-2">
                 <MessageCircle size={14}/> WhatsApp
@@ -94,7 +106,7 @@ function Post() {
                 <Phone size={14}/> Call
               </a>
               <Link to="/contact" className="glass-btn rounded-full px-4 py-3 text-xs uppercase tracking-widest flex items-center justify-center gap-2">
-                Book Appointment <ArrowRight size={12}/>
+                Reach Out <ArrowRight size={12}/>
               </Link>
             </div>
           </div>
@@ -102,9 +114,9 @@ function Post() {
           <div className="glass rounded-3xl p-6">
             <h3 className="font-display text-lg mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/services" className="gold-underline">Image Consulting</Link></li>
-              <li><Link to="/services" className="gold-underline">Personal Branding</Link></li>
-              <li><Link to="/services" className="gold-underline">Grooming & Styling</Link></li>
+              <li><Link to="/services" className="gold-underline">Executive Presence</Link></li>
+              <li><Link to="/services" className="gold-underline">Soft Skills Training</Link></li>
+              <li><Link to="/services" className="gold-underline">Workplace Etiquette</Link></li>
               <li><Link to="/services" className="gold-underline">Corporate Training</Link></li>
             </ul>
           </div>
@@ -164,11 +176,11 @@ function Post() {
 
           {/* CTA */}
           <div className="glass-strong rounded-3xl p-10 mt-16 text-center">
-            <h3 className="text-2xl md:text-3xl font-light">Ready to do this work?</h3>
-            <p className="mt-3 text-muted-foreground text-sm">Book a discovery call or message me directly.</p>
+            <h3 className="text-2xl md:text-3xl font-light">Ready to build this capability?</h3>
+            <p className="mt-3 text-muted-foreground text-sm">Reach out for workshops, institutional training or one-on-one coaching.</p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="glass-btn-gold rounded-full px-6 py-3 text-xs uppercase tracking-widest">WhatsApp</a>
-              <Link to="/contact" className="glass-btn rounded-full px-6 py-3 text-xs uppercase tracking-widest">Book Appointment</Link>
+              <Link to="/contact" className="glass-btn rounded-full px-6 py-3 text-xs uppercase tracking-widest">Reach Out</Link>
             </div>
           </div>
         </article>

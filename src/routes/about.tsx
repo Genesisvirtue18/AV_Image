@@ -11,7 +11,11 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Apoorva Verma is a certified image consultant, soft skills trainer and CELTA-certified English language trainer based in Delhi." },
       { property: "og:title", content: "About Apoorva Verma" },
       { property: "og:description", content: "Profile, certifications, education and professional experience." },
+      { property: "og:url", content: "https://av-image.vercel.app/about" },
+      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/about" }],
   }),
   component: About,
 });

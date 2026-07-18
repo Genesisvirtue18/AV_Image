@@ -6,9 +6,13 @@ import { posts } from "@/data/posts";
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Journal — Image Consulting & Personal Branding Insights" },
-      { name: "description", content: "Long-form essays on image management, personal branding, executive presence and colour analysis by Apoorva Verma." },
+      { title: "Journal — Corporate Training & Image Management Insights" },
+      { name: "description", content: "Field notes on soft skills, image management, executive presence, communication and workplace etiquette by Apoorva Verma." },
+      { property: "og:url", content: "https://av-image.vercel.app/blog" },
+      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/blog" }],
   }),
   component: Blog,
 });

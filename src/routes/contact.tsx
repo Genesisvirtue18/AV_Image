@@ -7,7 +7,11 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title: "Contact & Book — Apoorva Verma" },
       { name: "description", content: "Book an image consultation with Apoorva Verma via WhatsApp, email or phone." },
+      { property: "og:url", content: "https://av-image.vercel.app/contact" },
+      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/contact" }],
   }),
   component: Contact,
 });

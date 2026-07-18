@@ -15,8 +15,11 @@ export const Route = createFileRoute("/gallery")({
       { name: "description", content: "Awards, achievements, speaking engagements and press features for image consultant Apoorva Verma." },
       { property: "og:title", content: "Gallery — Apoorva Verma" },
       { property: "og:description", content: "Awards, recognitions and milestones." },
-      { property: "og:image", content: typeof window !== "undefined" ? window.location.origin + "/og-gallery.jpg" : "" },
+      { property: "og:url", content: "https://av-image.vercel.app/gallery" },
+      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://av-image.vercel.app/gallery" }],
   }),
   component: Gallery,
 });

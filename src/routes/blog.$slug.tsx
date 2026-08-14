@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Calendar, Clock, User, MessageCircle, Mail, Phone, ArrowRight, ChevronDown } from "lucide-react";
 import { posts, type BlogPost, type FAQ } from "@/data/posts";
 import { CONTACT } from "@/lib/contact";
+import { SITE_IMAGES } from "@/lib/images";
 import { useState } from "react";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -19,12 +20,12 @@ export const Route = createFileRoute("/blog/$slug")({
           { property: "og:description", content: loaderData.post.excerpt },
           { property: "og:type", content: "article" },
           { property: "og:url", content: `https://av-image.vercel.app/blog/${loaderData.post.slug}` },
-          { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
+          { property: "og:image", content: SITE_IMAGES.og },
           { property: "article:author", content: loaderData.post.author },
           { property: "article:published_time", content: loaderData.post.date },
           { name: "twitter:title", content: loaderData.post.title },
           { name: "twitter:description", content: loaderData.post.excerpt },
-          { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+          { name: "twitter:image", content: SITE_IMAGES.og },
         ]
       : [],
     links: loaderData
@@ -78,7 +79,7 @@ function Post() {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: "https://av-image.vercel.app/og-image.jpg",
+    image: SITE_IMAGES.og,
     author: { "@type": "Person", name: post.author },
     datePublished: post.date,
     mainEntityOfPage: `https://av-image.vercel.app/blog/${post.slug}`,

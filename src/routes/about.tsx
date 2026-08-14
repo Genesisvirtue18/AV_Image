@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Sparkles, Award, Heart, Target, Compass, BookOpen, Globe, Users } from "lucide-react";
-import portrait from "@/assets/portrait-sitting.jpg";
-import portraitAbout from "@/assets/portrait-about.jpg";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,8 +11,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Apoorva Verma" },
       { property: "og:description", content: "Profile, certifications, education and professional experience." },
       { property: "og:url", content: "https://av-image.vercel.app/about" },
-      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { property: "og:image", content: SITE_IMAGES.og },
+      { name: "twitter:image", content: SITE_IMAGES.og },
     ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/about" }],
   }),
@@ -51,7 +50,7 @@ function About() {
       <section className="grid md:grid-cols-2 gap-16 items-center mb-32">
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative order-2 md:order-1">
           <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-3xl -z-10"/>
-          <img src={portrait} alt="Apoorva Verma portrait" loading="lazy" className="rounded-3xl object-cover object-top w-full aspect-[4/5] glass-strong p-2"/>
+          <img src={SITE_IMAGES.primary} alt="Apoorva Verma portrait" loading="lazy" className="rounded-3xl object-cover object-top w-full aspect-[4/5] glass-strong p-2"/>
         </motion.div>
         <motion.div {...fadeUp} className="order-1 md:order-2">
           <p className="text-primary tracking-[0.3em] text-xs uppercase mb-4">About The Trainer</p>
@@ -81,7 +80,7 @@ function About() {
       {/* Long-form bio */}
       <section className="grid md:grid-cols-5 gap-12 mb-32 items-start">
         <motion.div {...fadeUp} className="md:col-span-2 md:sticky md:top-28">
-          <img src={portraitAbout} alt="Apoorva Verma at work" loading="lazy" className="rounded-3xl object-cover object-top w-full aspect-[4/5] glass-strong p-2"/>
+          <img src={SITE_IMAGES.secondary} alt="Apoorva Verma at work" loading="lazy" className="rounded-3xl object-cover object-top w-full aspect-[4/5] glass-strong p-2"/>
         </motion.div>
         <motion.div {...fadeUp} className="md:col-span-3 space-y-6 text-muted-foreground leading-relaxed">
           <p className="text-primary tracking-[0.3em] text-xs uppercase">Who I am</p>

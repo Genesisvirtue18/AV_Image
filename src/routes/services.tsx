@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Crown, Sparkles, Scissors, Briefcase, Users, ArrowRight, Heart, MessageSquare, UserCheck } from "lucide-react";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -10,8 +11,8 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: "Services — Apoorva Verma" },
       { property: "og:description", content: "Training modules and specialized corporate offerings." },
       { property: "og:url", content: "https://av-image.vercel.app/services" },
-      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { property: "og:image", content: SITE_IMAGES.og },
+      { name: "twitter:image", content: SITE_IMAGES.og },
     ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/services" }],
   }),

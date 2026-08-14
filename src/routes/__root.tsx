@@ -11,6 +11,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingActions } from "@/components/site/FloatingActions";
 import { CONTACT } from "@/lib/contact";
+import { SITE_IMAGES } from "@/lib/images";
 
 import appCss from "../styles.css?url";
 
@@ -18,7 +19,7 @@ const SITE_URL = "https://av-image.vercel.app";
 const SITE_TITLE = "Apoorva Verma — Image Consultant & Soft Skills Trainer";
 const SITE_DESCRIPTION =
   "Certified image consultant, soft skills trainer and CELTA-certified English language trainer for corporate teams, institutions and professionals.";
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const OG_IMAGE = SITE_IMAGES.og;
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -53,7 +54,7 @@ const serviceJsonLd = {
   name: "A.V Image Management",
   url: SITE_URL,
   image: OG_IMAGE,
-  logo: `${SITE_URL}/favicon.jpg`,
+  logo: `${SITE_URL}${SITE_IMAGES.favicon}`,
   description: SITE_DESCRIPTION,
   founder: { "@id": `${SITE_URL}/#person` },
   areaServed: ["Delhi", "India", "Online"],
@@ -172,8 +173,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { "script:ld+json": websiteJsonLd },
     ],
     links: [
-      { rel: "icon", type: "image/jpeg", href: "/favicon.jpg" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.jpg" },
+      { rel: "icon", type: "image/jpeg", href: SITE_IMAGES.favicon },
+      { rel: "apple-touch-icon", href: SITE_IMAGES.primary },
       { rel: "stylesheet", href: appCss },
     ],
   }),

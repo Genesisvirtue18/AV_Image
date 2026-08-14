@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { posts } from "@/data/posts";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -9,8 +10,8 @@ export const Route = createFileRoute("/blog/")({
       { title: "Journal — Corporate Training & Image Management Insights" },
       { name: "description", content: "Field notes on soft skills, image management, executive presence, communication and workplace etiquette by Apoorva Verma." },
       { property: "og:url", content: "https://av-image.vercel.app/blog" },
-      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { property: "og:image", content: SITE_IMAGES.og },
+      { name: "twitter:image", content: SITE_IMAGES.og },
     ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/blog" }],
   }),

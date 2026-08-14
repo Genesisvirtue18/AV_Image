@@ -1,12 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Award, Trophy, Star, Calendar } from "lucide-react";
-import award1 from "@/assets/award-1.jpg";
-import award2 from "@/assets/award-2.jpg";
-import event1 from "@/assets/event-1.jpg";
-import event2 from "@/assets/event-2.jpg";
-import portrait from "@/assets/portrait-about.jpg";
-import portrait2 from "@/assets/portrait-sitting.jpg";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -16,8 +11,8 @@ export const Route = createFileRoute("/gallery")({
       { property: "og:title", content: "Gallery — Apoorva Verma" },
       { property: "og:description", content: "Awards, recognitions and milestones." },
       { property: "og:url", content: "https://av-image.vercel.app/gallery" },
-      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { property: "og:image", content: SITE_IMAGES.og },
+      { name: "twitter:image", content: SITE_IMAGES.og },
     ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/gallery" }],
   }),
@@ -25,12 +20,12 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const awards = [
-  { img: award1, title: "Outstanding Corporate Trainer", year: "ISIM Summit", body: "Recognised as an Outstanding Corporate Trainer at the ISIM Summit." },
-  { img: award2, title: "Bhim Rao Ambedkar College Workshop", year: "Delhi University", body: "Delivered entrepreneurship and sales workshops, including a comprehensive session for 200+ students." },
-  { img: event1, title: "Ramagya Group Corporate Office", year: "Corporate Training", body: "Designed an interactive session on enhancing executive presence and first impression management." },
-  { img: event2, title: "Amity University", year: "Visiting Faculty", body: "Serves as visiting faculty at Amity Finishing School and facilitates confidence, entrepreneurship and professional image sessions." },
-  { img: portrait, title: "Ozone Signature Retail Staff", year: "Image-Building Workshop", body: "Led image-building workshops to improve employee motivation and customer service engagement across store locations." },
-  { img: portrait2, title: "Times Now Dress Code Standards", year: "Corporate Image", body: "Collaborated on corporate dress code standards to improve staff professionalism and workplace attire." },
+  { img: SITE_IMAGES.primary, title: "Outstanding Corporate Trainer", year: "ISIM Summit", body: "Recognised as an Outstanding Corporate Trainer at the ISIM Summit." },
+  { img: SITE_IMAGES.secondary, title: "Bhim Rao Ambedkar College Workshop", year: "Delhi University", body: "Delivered entrepreneurship and sales workshops, including a comprehensive session for 200+ students." },
+  { img: SITE_IMAGES.primary, title: "Ramagya Group Corporate Office", year: "Corporate Training", body: "Designed an interactive session on enhancing executive presence and first impression management." },
+  { img: SITE_IMAGES.secondary, title: "Amity University", year: "Visiting Faculty", body: "Serves as visiting faculty at Amity Finishing School and facilitates confidence, entrepreneurship and professional image sessions." },
+  { img: SITE_IMAGES.primary, title: "Ozone Signature Retail Staff", year: "Image-Building Workshop", body: "Led image-building workshops to improve employee motivation and customer service engagement across store locations." },
+  { img: SITE_IMAGES.secondary, title: "Times Now Dress Code Standards", year: "Corporate Image", body: "Collaborated on corporate dress code standards to improve staff professionalism and workplace attire." },
 ];
 
 const milestones = [

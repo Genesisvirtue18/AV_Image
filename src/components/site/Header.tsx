@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import { SITE_IMAGES } from "@/lib/images";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -19,7 +19,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-40 glass-strong">
       <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="A.V Image Management" className="h-14 md:h-16 w-auto object-contain" />
+          <img src={SITE_IMAGES.secondary} alt="A.V Image Management" className="h-14 md:h-16 w-auto object-contain" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7">
           {navItems.map((i) => (

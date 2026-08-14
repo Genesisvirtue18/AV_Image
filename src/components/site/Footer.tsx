@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, Instagram, MessageCircle, Linkedin, Facebook } from "lucide-react";
-import logo from "@/assets/logo.png";
 import { CONTACT } from "@/lib/contact";
+import { SITE_IMAGES } from "@/lib/images";
 
 export function Footer() {
   return (
     <footer className="relative mt-32 border-t border-primary/20 glass-strong">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <img src={logo} alt="Apoorva Verma" className="h-20 w-auto object-contain mb-4" />
+          <img src={SITE_IMAGES.secondary} alt="Apoorva Verma" className="h-20 w-auto object-contain mb-4" />
           <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
             Corporate training, image management, soft skills and English language coaching
             for credible, confident and competent professionals across industries.

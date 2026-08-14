@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -8,8 +9,8 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact & Book — Apoorva Verma" },
       { name: "description", content: "Book an image consultation with Apoorva Verma via WhatsApp, email or phone." },
       { property: "og:url", content: "https://av-image.vercel.app/contact" },
-      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { property: "og:image", content: SITE_IMAGES.og },
+      { name: "twitter:image", content: SITE_IMAGES.og },
     ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/contact" }],
   }),

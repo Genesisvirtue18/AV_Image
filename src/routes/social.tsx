@@ -2,13 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Instagram, Linkedin, Facebook, Heart, MessageCircle, ExternalLink } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
-import portrait from "@/assets/portrait-hero.jpg";
-import portrait2 from "@/assets/portrait-about.jpg";
-import portrait3 from "@/assets/portrait-sitting.jpg";
-import event1 from "@/assets/event-1.jpg";
-import event2 from "@/assets/event-2.jpg";
-import award1 from "@/assets/award-1.jpg";
-import award2 from "@/assets/award-2.jpg";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/social")({
   head: () => ({
@@ -18,8 +12,8 @@ export const Route = createFileRoute("/social")({
       { property: "og:title", content: "Follow Apoorva Verma" },
       { property: "og:description", content: "Latest posts and updates from Instagram and LinkedIn." },
       { property: "og:url", content: "https://av-image.vercel.app/social" },
-      { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+      { property: "og:image", content: SITE_IMAGES.og },
+      { name: "twitter:image", content: SITE_IMAGES.og },
     ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/social" }],
   }),
@@ -27,22 +21,22 @@ export const Route = createFileRoute("/social")({
 });
 
 const igPosts = [
-  { img: portrait, caption: "Building people, elevating brands: image management for confident professionals.", likes: 1240, comments: 86 },
-  { img: event1, caption: "Workshop moments from institutional training with students and educators.", likes: 980, comments: 54 },
-  { img: portrait2, caption: "Appearance, behaviour and communication are the A.B.C. of professional image.", likes: 1612, comments: 122 },
-  { img: award1, title: "Award", caption: "Recognised as Outstanding Corporate Trainer at the ISIM Summit.", likes: 2100, comments: 198 },
-  { img: portrait3, caption: "Confidence is built through grooming, self-perception and communication practice.", likes: 870, comments: 41 },
-  { img: event2, caption: "Executive presence and first impression management for corporate teams.", likes: 760, comments: 38 },
+  { img: SITE_IMAGES.primary, caption: "Building people, elevating brands: image management for confident professionals.", likes: 1240, comments: 86 },
+  { img: SITE_IMAGES.secondary, caption: "Workshop moments from institutional training with students and educators.", likes: 980, comments: 54 },
+  { img: SITE_IMAGES.primary, caption: "Appearance, behaviour and communication are the A.B.C. of professional image.", likes: 1612, comments: 122 },
+  { img: SITE_IMAGES.secondary, title: "Award", caption: "Recognised as Outstanding Corporate Trainer at the ISIM Summit.", likes: 2100, comments: 198 },
+  { img: SITE_IMAGES.primary, caption: "Confidence is built through grooming, self-perception and communication practice.", likes: 870, comments: 41 },
+  { img: SITE_IMAGES.secondary, caption: "Executive presence and first impression management for corporate teams.", likes: 760, comments: 38 },
 ];
 
 const liPosts = [
-  { img: event1, title: "Why soft skills training is mission-critical",
+  { img: SITE_IMAGES.primary, title: "Why soft skills training is mission-critical",
     excerpt: "Communication, collaboration and adaptability are no longer optional. They directly affect retention, morale and leadership readiness.",
     reactions: 412, comments: 47 },
-  { img: award2, title: "Executive presence and first impression management",
+  { img: SITE_IMAGES.secondary, title: "Executive presence and first impression management",
     excerpt: "A practical session for professionals who need presence, communication and personal brand to work together.",
     reactions: 1280, comments: 156 },
-  { img: portrait3, title: "The polished professional",
+  { img: SITE_IMAGES.primary, title: "The polished professional",
     excerpt: "Workplace conduct, grooming, business English and virtual presence are finishing-school essentials for modern teams.",
     reactions: 689, comments: 73 },
 ];

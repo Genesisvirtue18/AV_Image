@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Sparkles, Crown, Briefcase, Scissors, ArrowRight, Star, Quote } from "lucide-react";
-import portrait from "@/assets/portrait-hero.jpg";
-import portraitAbout from "@/assets/portrait-about.jpg";
 import { CONTACT } from "@/lib/contact";
+import { SITE_IMAGES } from "@/lib/images";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -11,8 +10,8 @@ export const Route = createFileRoute("/")({
           { title: "Apoorva Verma — Image Consultant & Soft Skills Trainer" },
           { name: "description", content: "Certified image consultant, soft skills trainer and CELTA-certified English language trainer helping professionals lead with presence, confidence and credibility." },
           { property: "og:url", content: "https://av-image.vercel.app/" },
-          { property: "og:image", content: "https://av-image.vercel.app/og-image.jpg" },
-          { name: "twitter:image", content: "https://av-image.vercel.app/og-image.jpg" },
+          { property: "og:image", content: SITE_IMAGES.og },
+          { name: "twitter:image", content: SITE_IMAGES.og },
         ],
     links: [{ rel: "canonical", href: "https://av-image.vercel.app/" }],
   }),
@@ -39,7 +38,7 @@ function Home() {
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center grain">
         <div className="absolute inset-0 -z-10">
-          <img src={portrait} alt="" className="absolute right-0 -top-[6%] h-[112%] w-full object-cover object-[68%_top] opacity-90 sm:object-[64%_top] md:top-0 md:h-full md:w-[60%] md:object-[center_12%]" />
+          <img src={SITE_IMAGES.primary} alt="" className="absolute right-0 -top-[6%] h-[112%] w-full object-cover object-[68%_top] opacity-90 sm:object-[64%_top] md:top-0 md:h-full md:w-[60%] md:object-[center_12%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background md:bg-gradient-to-r md:from-background md:via-background/85 md:to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         </div>
@@ -97,7 +96,7 @@ function Home() {
       <motion.section initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:"-80px"}} transition={{duration:0.7}} className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
         <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-2xl -z-10"/>
-          <img src={portraitAbout} alt="Apoorva Verma" className="rounded-3xl object-cover object-top w-full aspect-[4/5] glass-strong p-2"/>
+          <img src={SITE_IMAGES.secondary} alt="Apoorva Verma" className="rounded-3xl object-cover object-top w-full aspect-[4/5] glass-strong p-2"/>
         </div>
         <div>
           <p className="text-primary tracking-[0.3em] text-xs uppercase mb-4">About Apoorva Verma</p>
